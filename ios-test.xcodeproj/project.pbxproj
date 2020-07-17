@@ -99,13 +99,13 @@
 		5C471FD724C1EFFE001CE5BC /* ios-test */ = {
 			isa = PBXGroup;
 			children = (
-				5C471FD824C1EFFE001CE5BC /* AppDelegate.swift */,
-				5C471FDC24C1EFFE001CE5BC /* CategoryViewController.swift */,
-				5C471FDE24C1EFFE001CE5BC /* Main.storyboard */,
-				5C471FE424C1F002001CE5BC /* Assets.xcassets */,
-				5C471FE624C1F002001CE5BC /* LaunchScreen.storyboard */,
-				5C471FE924C1F002001CE5BC /* Info.plist */,
-				5C471FE124C1EFFE001CE5BC /* ios_test.xcdatamodeld */,
+				5C47201124C20411001CE5BC /* Services */,
+				5C47201024C203FF001CE5BC /* Cells */,
+				5C47200F24C203F5001CE5BC /* ViewModels */,
+				5C47200E24C203ED001CE5BC /* Controllers */,
+				5C47200D24C203E4001CE5BC /* Models */,
+				5C47200C24C203DD001CE5BC /* Custom */,
+				5C47200B24C203C4001CE5BC /* SystemFiles */,
 			);
 			path = "ios-test";
 			sourceTree = "<group>";
@@ -126,6 +126,78 @@
 				5C471FFF24C1F003001CE5BC /* Info.plist */,
 			);
 			path = "ios-testUITests";
+			sourceTree = "<group>";
+		};
+		5C47200B24C203C4001CE5BC /* SystemFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5C471FD824C1EFFE001CE5BC /* AppDelegate.swift */,
+				5C471FDE24C1EFFE001CE5BC /* Main.storyboard */,
+				5C471FE424C1F002001CE5BC /* Assets.xcassets */,
+				5C471FE624C1F002001CE5BC /* LaunchScreen.storyboard */,
+				5C471FE924C1F002001CE5BC /* Info.plist */,
+				5C471FE124C1EFFE001CE5BC /* ios_test.xcdatamodeld */,
+			);
+			path = SystemFiles;
+			sourceTree = "<group>";
+		};
+		5C47200C24C203DD001CE5BC /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		5C47200D24C203E4001CE5BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5C47200E24C203ED001CE5BC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C47201224C20424001CE5BC /* Payments */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5C47200F24C203F5001CE5BC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5C47201424C20442001CE5BC /* Payments */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5C47201024C203FF001CE5BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5C47201124C20411001CE5BC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5C47201224C20424001CE5BC /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				5C471FDC24C1EFFE001CE5BC /* CategoryViewController.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
+		5C47201424C20442001CE5BC /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Payments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
