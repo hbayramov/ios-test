@@ -21,7 +21,7 @@ class Endpoints {
         return manager
     }()
     
-    typealias categoryResponse = (AppResponse<Response<Category>>) -> ()
+    typealias categoryResponse = (AppResponse<Response<[Category]>>) -> ()
     typealias paymentResponse = (AppResponse<Response<Receipt>>) -> ()
     
     func getCategories(completion: @escaping categoryResponse) {

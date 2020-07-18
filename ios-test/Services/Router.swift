@@ -33,21 +33,25 @@ enum Router: URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         switch self {
         case .getCategories:
-            return try generateRequest(baseUrl: "", mockUrl: Constants.API.getCategoriesMockUrl)
+            return try generateRequest(mockUrl: Constants.API.getCategoriesMockUrl)
         case .makeNewPayment:
-            return try generateRequest(baseUrl: "", mockUrl: Constants.API.makeNewPaymentMockUrl)
+            return try generateRequest(mockUrl: Constants.API.makeNewPaymentMockUrl)
         }
     }
 }
 
 extension Router {
-    func generateRequest(baseUrl: String = "", mockUrl: String = "", body: String = "", headers: [String: String] = [:], contentType: String = "") throws -> URLRequest {
+    func generateRequest(mockUrl: String = "", body: String = "", headers: [String: String] = [:], contentType: String = "") throws -> URLRequest {
+        let baseUrl = Constants.API.baseUrl
         let url = baseUrl.isEmpty ? mockUrl : baseUrl + path
         
         var urlRequest = URLRequest(url: URL(string: url)!)
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = headers
-        urlRequest.httpBody = body.data(using: .utf8, allowLossyConversion: false)
+        
+        if !body.isEmpty {
+            urlRequest.httpBody = body.data(using: .utf8, allowLossyConversion: false)
+        }
         
         if !contentType.isEmpty {
            urlRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")

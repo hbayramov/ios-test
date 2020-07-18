@@ -15,6 +15,8 @@ enum ErrorCode {
     case unknownError
     case notConnectedToInternet
     case fieldError(String)
+    case parameterMissing(String)
+    case serviceUnavailable(String)
 }
 
 enum AppResponse<T> {

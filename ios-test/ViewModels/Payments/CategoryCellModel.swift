@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  CategoryCellModel.swift
 //  ios-test
 //
 //  Created by Huseyn Bayramov on 7/18/20.
@@ -8,9 +8,7 @@
 
 import Foundation
 
-
-struct Category: Decodable {
+struct CategoryCellModel {
     var id: String?
     var name: String?
-    var providers: [Provider]?
 }

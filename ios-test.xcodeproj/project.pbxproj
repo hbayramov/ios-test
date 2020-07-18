@@ -20,6 +20,14 @@
 		5C00EA6924C2E123007CEECA /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA6824C2E123007CEECA /* Receipt.swift */; };
 		5C00EA6B24C2E18A007CEECA /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA6A24C2E18A007CEECA /* Amount.swift */; };
 		5C00EA6D24C2E329007CEECA /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA6C24C2E329007CEECA /* Response.swift */; };
+		5C16EA3C24C2F491008388C1 /* ProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA3B24C2F491008388C1 /* ProviderViewController.swift */; };
+		5C16EA3E24C2F585008388C1 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA3D24C2F585008388C1 /* PaymentViewController.swift */; };
+		5C16EA4024C2F5BC008388C1 /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA3F24C2F5BC008388C1 /* ReceiptViewController.swift */; };
+		5C16EA4224C2F6CA008388C1 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4124C2F6CA008388C1 /* PaymentViewModel.swift */; };
+		5C16EA4524C2F6E0008388C1 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4424C2F6E0008388C1 /* BaseViewModel.swift */; };
+		5C16EA4724C2F7AF008388C1 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4624C2F7AF008388C1 /* ErrorService.swift */; };
+		5C16EA4924C2F82D008388C1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4824C2F82D008388C1 /* BaseViewController.swift */; };
+		5C16EA4C24C2F8FB008388C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4B24C2F8FB008388C1 /* Extensions.swift */; };
 		5C471FD924C1EFFE001CE5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FD824C1EFFE001CE5BC /* AppDelegate.swift */; };
 		5C471FDD24C1EFFE001CE5BC /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FDC24C1EFFE001CE5BC /* CategoryViewController.swift */; };
 		5C471FE024C1EFFE001CE5BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C471FDE24C1EFFE001CE5BC /* Main.storyboard */; };
@@ -28,6 +36,9 @@
 		5C471FE824C1F002001CE5BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C471FE624C1F002001CE5BC /* LaunchScreen.storyboard */; };
 		5C471FF324C1F003001CE5BC /* ios_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FF224C1F003001CE5BC /* ios_testTests.swift */; };
 		5C471FFE24C1F003001CE5BC /* ios_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FFD24C1F003001CE5BC /* ios_testUITests.swift */; };
+		5CF317CE24C30CE2005C2508 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317CD24C30CE2005C2508 /* CategoryCell.swift */; };
+		5CF317D024C30D44005C2508 /* BaseCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */; };
+		5CF317D224C30DB1005C2508 /* CategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317D124C30DB1005C2508 /* CategoryCellModel.swift */; };
 		AB35EC9DD271DB636E89AD8F /* Pods_ios_test_ios_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D492F8A8DB68524F8833DA7A /* Pods_ios_test_ios_testUITests.framework */; };
 		C3048DEB1D22C8FDA66E3CA2 /* Pods_ios_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE9AC56021A837EB6C944D6 /* Pods_ios_test.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +76,14 @@
 		5C00EA6824C2E123007CEECA /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		5C00EA6A24C2E18A007CEECA /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		5C00EA6C24C2E329007CEECA /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		5C16EA3B24C2F491008388C1 /* ProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewController.swift; sourceTree = "<group>"; };
+		5C16EA3D24C2F585008388C1 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		5C16EA3F24C2F5BC008388C1 /* ReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
+		5C16EA4124C2F6CA008388C1 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		5C16EA4424C2F6E0008388C1 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		5C16EA4624C2F7AF008388C1 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
+		5C16EA4824C2F82D008388C1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		5C16EA4B24C2F8FB008388C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C471FD524C1EFFE001CE5BC /* ios-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C471FD824C1EFFE001CE5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C471FDC24C1EFFE001CE5BC /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +98,9 @@
 		5C471FF924C1F003001CE5BC /* ios-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C471FFD24C1F003001CE5BC /* ios_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_testUITests.swift; sourceTree = "<group>"; };
 		5C471FFF24C1F003001CE5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CF317CD24C30CE2005C2508 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCategoryCell.swift; sourceTree = "<group>"; };
+		5CF317D124C30DB1005C2508 /* CategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellModel.swift; sourceTree = "<group>"; };
 		6FE35226849E05614938CDB7 /* Pods-ios-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-test.release.xcconfig"; path = "Target Support Files/Pods-ios-test/Pods-ios-test.release.xcconfig"; sourceTree = "<group>"; };
 		712B451DDAA673439ADBDD9B /* Pods-ios-testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-testTests.release.xcconfig"; path = "Target Support Files/Pods-ios-testTests/Pods-ios-testTests.release.xcconfig"; sourceTree = "<group>"; };
 		7488213E210AD787B5D524A5 /* Pods-ios-test-ios-testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-test-ios-testUITests.release.xcconfig"; path = "Target Support Files/Pods-ios-test-ios-testUITests/Pods-ios-test-ios-testUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +154,22 @@
 				5C00EA5A24C2D831007CEECA /* Enums.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5C16EA4324C2F6D6008388C1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5C16EA4424C2F6E0008388C1 /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5C16EA4A24C2F832008388C1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5C16EA4824C2F82D008388C1 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		5C471FCC24C1EFFE001CE5BC = {
@@ -205,6 +243,7 @@
 		5C47200C24C203DD001CE5BC /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				5C16EA4B24C2F8FB008388C1 /* Extensions.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -227,6 +266,7 @@
 		5C47200E24C203ED001CE5BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C16EA4A24C2F832008388C1 /* Base */,
 				5C47201224C20424001CE5BC /* Payments */,
 			);
 			path = Controllers;
@@ -235,6 +275,7 @@
 		5C47200F24C203F5001CE5BC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5C16EA4324C2F6D6008388C1 /* Base */,
 				5C47201424C20442001CE5BC /* Payments */,
 			);
 			path = ViewModels;
@@ -243,6 +284,8 @@
 		5C47201024C203FF001CE5BC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5CF317CD24C30CE2005C2508 /* CategoryCell.swift */,
+				5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -252,6 +295,7 @@
 			children = (
 				5C00EA5324C2CC2F007CEECA /* Router.swift */,
 				5C00EA5824C2D4A0007CEECA /* Endpoints.swift */,
+				5C16EA4624C2F7AF008388C1 /* ErrorService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -260,6 +304,9 @@
 			isa = PBXGroup;
 			children = (
 				5C471FDC24C1EFFE001CE5BC /* CategoryViewController.swift */,
+				5C16EA3B24C2F491008388C1 /* ProviderViewController.swift */,
+				5C16EA3D24C2F585008388C1 /* PaymentViewController.swift */,
+				5C16EA3F24C2F5BC008388C1 /* ReceiptViewController.swift */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -267,6 +314,8 @@
 		5C47201424C20442001CE5BC /* Payments */ = {
 			isa = PBXGroup;
 			children = (
+				5C16EA4124C2F6CA008388C1 /* PaymentViewModel.swift */,
+				5CF317D124C30DB1005C2508 /* CategoryCellModel.swift */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -523,14 +572,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C16EA4C24C2F8FB008388C1 /* Extensions.swift in Sources */,
 				5C00EA5724C2CDE0007CEECA /* Constants.swift in Sources */,
+				5C16EA4524C2F6E0008388C1 /* BaseViewModel.swift in Sources */,
+				5C16EA3C24C2F491008388C1 /* ProviderViewController.swift in Sources */,
 				5C00EA6124C2DF5D007CEECA /* Category.swift in Sources */,
+				5C16EA4024C2F5BC008388C1 /* ReceiptViewController.swift in Sources */,
 				5C00EA6924C2E123007CEECA /* Receipt.swift in Sources */,
+				5CF317D224C30DB1005C2508 /* CategoryCellModel.swift in Sources */,
 				5C00EA6724C2E077007CEECA /* Pair.swift in Sources */,
 				5C00EA6B24C2E18A007CEECA /* Amount.swift in Sources */,
 				5C00EA5424C2CC2F007CEECA /* Router.swift in Sources */,
+				5C16EA3E24C2F585008388C1 /* PaymentViewController.swift in Sources */,
+				5CF317CE24C30CE2005C2508 /* CategoryCell.swift in Sources */,
+				5C16EA4224C2F6CA008388C1 /* PaymentViewModel.swift in Sources */,
 				5C471FDD24C1EFFE001CE5BC /* CategoryViewController.swift in Sources */,
 				5C00EA6D24C2E329007CEECA /* Response.swift in Sources */,
+				5C16EA4924C2F82D008388C1 /* BaseViewController.swift in Sources */,
 				5C471FD924C1EFFE001CE5BC /* AppDelegate.swift in Sources */,
 				5C00EA6524C2DFE8007CEECA /* Field.swift in Sources */,
 				5C00EA5B24C2D831007CEECA /* Enums.swift in Sources */,
@@ -538,6 +596,8 @@
 				5C00EA5924C2D4A0007CEECA /* Endpoints.swift in Sources */,
 				5C00EA5F24C2DEFA007CEECA /* Error.swift in Sources */,
 				5C471FE324C1EFFE001CE5BC /* ios_test.xcdatamodeld in Sources */,
+				5CF317D024C30D44005C2508 /* BaseCategoryCell.swift in Sources */,
+				5C16EA4724C2F7AF008388C1 /* ErrorService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
