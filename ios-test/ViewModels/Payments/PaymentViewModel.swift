@@ -10,9 +10,14 @@ import Foundation
 
 class PaymentViewModel: BaseViewModel {
     var categoryData: [Category]?
-    var categoryCellModels = [CategoryCellModel]()
+    var categoryCellData = [CategoryCellModel]()
     
     func getCateogries(completion: @escaping ErrorCodeType) {
+        if !Reachability.isConnectedToNetwork() {
+            completion(.notConnectedToInternet)
+            return
+        }
+        
         endpoint.getCategories { [weak self] result in
             switch result {
             case .success(let resultData):
@@ -51,9 +56,9 @@ extension PaymentViewModel {
     func addCategoryCellData() {
         guard let categories = categoryData else { return }
         
-        categoryCellModels = []
+        categoryCellData = []
         for cat in categories {
-            categoryCellModels.append(CategoryCellModel(id: cat.id, name: cat.name))
+            categoryCellData.append(CategoryCellModel(id: cat.id, name: cat.name))
         }
     }
 }

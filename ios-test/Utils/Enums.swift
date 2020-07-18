@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ErrorCode {
+enum ErrorCode: Equatable {
     case noData(String)
     case parsingError
     case responseError(String)

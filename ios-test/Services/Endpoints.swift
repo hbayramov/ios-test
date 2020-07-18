@@ -25,10 +25,14 @@ class Endpoints {
     typealias paymentResponse = (AppResponse<Response<Receipt>>) -> ()
     
     func getCategories(completion: @escaping categoryResponse) {
+        print("Get categories endpoint called")
+        
         customRequest(to: Router.getCategories) { completion($0) }
     }
     
     func makeNewPayment(body: String, completion: @escaping paymentResponse) {
+        print("Make new payment endpoint called")
+        
         customRequest(to: Router.makeNewPayment(body: body)) { completion($0) }
     }
 }

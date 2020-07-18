@@ -39,6 +39,7 @@
 		5CF317CE24C30CE2005C2508 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317CD24C30CE2005C2508 /* CategoryCell.swift */; };
 		5CF317D024C30D44005C2508 /* BaseCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */; };
 		5CF317D224C30DB1005C2508 /* CategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317D124C30DB1005C2508 /* CategoryCellModel.swift */; };
+		5CF317D424C3310D005C2508 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317D324C3310D005C2508 /* Reachability.swift */; };
 		AB35EC9DD271DB636E89AD8F /* Pods_ios_test_ios_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D492F8A8DB68524F8833DA7A /* Pods_ios_test_ios_testUITests.framework */; };
 		C3048DEB1D22C8FDA66E3CA2 /* Pods_ios_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE9AC56021A837EB6C944D6 /* Pods_ios_test.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		5CF317CD24C30CE2005C2508 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCategoryCell.swift; sourceTree = "<group>"; };
 		5CF317D124C30DB1005C2508 /* CategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellModel.swift; sourceTree = "<group>"; };
+		5CF317D324C3310D005C2508 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		6FE35226849E05614938CDB7 /* Pods-ios-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-test.release.xcconfig"; path = "Target Support Files/Pods-ios-test/Pods-ios-test.release.xcconfig"; sourceTree = "<group>"; };
 		712B451DDAA673439ADBDD9B /* Pods-ios-testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-testTests.release.xcconfig"; path = "Target Support Files/Pods-ios-testTests/Pods-ios-testTests.release.xcconfig"; sourceTree = "<group>"; };
 		7488213E210AD787B5D524A5 /* Pods-ios-test-ios-testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-test-ios-testUITests.release.xcconfig"; path = "Target Support Files/Pods-ios-test-ios-testUITests/Pods-ios-test-ios-testUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				5C00EA5624C2CDE0007CEECA /* Constants.swift */,
 				5C00EA5A24C2D831007CEECA /* Enums.swift */,
+				5CF317D324C3310D005C2508 /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				5C16EA4524C2F6E0008388C1 /* BaseViewModel.swift in Sources */,
 				5C16EA3C24C2F491008388C1 /* ProviderViewController.swift in Sources */,
 				5C00EA6124C2DF5D007CEECA /* Category.swift in Sources */,
+				5CF317D424C3310D005C2508 /* Reachability.swift in Sources */,
 				5C16EA4024C2F5BC008388C1 /* ReceiptViewController.swift in Sources */,
 				5C00EA6924C2E123007CEECA /* Receipt.swift in Sources */,
 				5CF317D224C30DB1005C2508 /* CategoryCellModel.swift in Sources */,

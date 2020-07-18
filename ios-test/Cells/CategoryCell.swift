@@ -44,7 +44,8 @@ class CategoryCell: BaseCategoryCell {
         label.text = "Label"
         label.textAlignment = .center
         label.textColor = .black
-        label.numberOfLines = 0
+        label.numberOfLines = 2
+        label.lineBreakMode = .byTruncatingTail
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
@@ -68,6 +69,7 @@ class CategoryCell: BaseCategoryCell {
         
         title.centerXAnchor.constraint(equalTo: bgView.centerXAnchor).isActive = true
         title.centerYAnchor.constraint(equalTo: bgView.centerYAnchor).isActive = true
+        title.widthAnchor.constraint(equalTo: bgView.widthAnchor, multiplier: 0.95).isActive = true
     }
 }
 
