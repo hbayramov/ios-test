@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pair<T: Decodable>: Decodable {
-    var k: T?
-    var v: T?
+struct Pair: Decodable {
+    var k: String?
+    var v: String?
 }

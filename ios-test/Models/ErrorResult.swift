@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Error: Decodable {
+struct ErrorResult: Decodable {
     var code: ResponseErrorCode?
     var message: String?
 }

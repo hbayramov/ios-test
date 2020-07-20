@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import CoreData
 
 class Endpoints {
     private init() {}
@@ -62,11 +63,9 @@ extension JSONDecoder {
             if let data = response.data {
                 nonConformingFloatDecodingStrategy = .throw
                 do {
+                    //saveData(data)
                     let result = try decode(type.self, from: data)
-//                    if let data = result as? BaseResponse, data.code == ResultCode.invalidSid {
-//                        PinViewController(with: LoginViewModel()).setAsRoot()
-//                        return .failure(.responseError(Labels.Error.sessionError.localized))
-//                    }
+                    
                     return .success(result)
                 } catch {
                     print("parsing error \(error)")
@@ -77,4 +76,46 @@ extension JSONDecoder {
             }
         }
     }
+    
+//    @discardableResult
+//    func saveData(_ jsonData: Data) -> Bool {
+//        do {
+//            guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
+//                fatalError("Failed to retrieve context")
+//            }
+//
+//            let persistentContainer = NSPersistentContainer(name: "Category")
+//            clearData("Category")
+//
+//            let result = try decode(Response<Category>.self, from: jsonData)
+//            let data = NSKeyedArchiver.archivedData(withRootObject: result.data as Any)
+//
+//            // Parse JSON data
+//            let managedObjectContext = persistentContainer.viewContext
+//            let decoder = JSONDecoder()
+//            decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
+//            _ = try decoder.decode([Category].self, from: data)
+//            try managedObjectContext.save()
+//
+//            return true
+//        } catch let error {
+//            print(error)
+//            return false
+//        }
+//    }
+//
+//    func clearData(_ entity: String) {
+//        let persistentContainer = NSPersistentContainer(name: "Category")
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+//        fetchRequest.returnsObjectsAsFaults = false
+//        do {
+//            let results = try persistentContainer.viewContext.fetch(fetchRequest)
+//            for object in results {
+//                guard let objectData = object as? NSManagedObject else {continue}
+//                persistentContainer.viewContext.delete(objectData)
+//            }
+//        } catch let error {
+//            print("Detele all data in \(entity) error :", error)
+//        }
+//    }
 }

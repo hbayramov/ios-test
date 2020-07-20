@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ErrorService {
+struct ErrorService: Error {
     
     private init() {}
     

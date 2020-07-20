@@ -9,6 +9,6 @@
 import Foundation
 
 struct Response<T: Decodable>: Decodable {
-    var error: Error?
+    var error: ErrorResult?
     var data: T?
 }

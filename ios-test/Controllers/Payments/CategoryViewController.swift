@@ -90,9 +90,9 @@ extension CategoryViewController {
         viewModel.getCateogries { [weak self] error in
             self?.activityIndicator.stopAnimating()
             self?.refreshControl.endRefreshing()
-            self?.onTapToReload()
             
             if let err = error {
+                if err == .notConnectedToInternet { self?.fetchtFromDb() }
                 self?.errorAlert(with: ErrorService.handle(error: err))
                 return
             }
@@ -116,9 +116,7 @@ extension CategoryViewController {
         
         tapToReload = UILabel()
         tapToReload?.translatesAutoresizingMaskIntoConstraints = false
-        tapToReload?.text = "Tap To Reload"
-        tapToReload?.isUserInteractionEnabled = true
-        tapToReload?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reloadData)))
+        tapToReload?.text = "Pull to refresh"
         
         view.addSubview(tapToReload!)
         
@@ -128,7 +126,18 @@ extension CategoryViewController {
         tapToReload?.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
     }
     
+    private func fetchtFromDb() {
+        viewModel.fetchCategoriesFromDb() { [weak self] result in
+            if result == true {
+                self?.collectionView.reloadData()
+            } else {
+                self?.onTapToReload()
+            }
+        }
+    }
+    
     @objc private func reloadData() {
+        refreshControl.beginRefreshing()
         getCategories()
     }
 }

@@ -11,6 +11,6 @@ import Foundation
 struct Receipt: Decodable {
     var id: String?
     var date: String?
-    var details: [Pair<String>]?
+    var details: [Pair]?
     var amount: Amount?
 }

@@ -12,5 +12,5 @@ struct Field: Decodable {
     var id: String?
     var type: FieldType?
     var label: String?
-    var options: [Pair<String>]?
+    var options: [Pair]?
 }

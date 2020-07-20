@@ -12,7 +12,7 @@
 		5C00EA5724C2CDE0007CEECA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA5624C2CDE0007CEECA /* Constants.swift */; };
 		5C00EA5924C2D4A0007CEECA /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA5824C2D4A0007CEECA /* Endpoints.swift */; };
 		5C00EA5B24C2D831007CEECA /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA5A24C2D831007CEECA /* Enums.swift */; };
-		5C00EA5F24C2DEFA007CEECA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA5E24C2DEFA007CEECA /* Error.swift */; };
+		5C00EA5F24C2DEFA007CEECA /* ErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA5E24C2DEFA007CEECA /* ErrorResult.swift */; };
 		5C00EA6124C2DF5D007CEECA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA6024C2DF5D007CEECA /* Category.swift */; };
 		5C00EA6324C2DFA4007CEECA /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA6224C2DFA4007CEECA /* Provider.swift */; };
 		5C00EA6524C2DFE8007CEECA /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00EA6424C2DFE8007CEECA /* Field.swift */; };
@@ -28,6 +28,8 @@
 		5C16EA4724C2F7AF008388C1 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4624C2F7AF008388C1 /* ErrorService.swift */; };
 		5C16EA4924C2F82D008388C1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4824C2F82D008388C1 /* BaseViewController.swift */; };
 		5C16EA4C24C2F8FB008388C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16EA4B24C2F8FB008388C1 /* Extensions.swift */; };
+		5C4093A224C4B17D006CF34A /* CoreDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4093A124C4B17D006CF34A /* CoreDataContext.swift */; };
+		5C4093A424C4B9F3006CF34A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4093A324C4B9F3006CF34A /* CoreDataService.swift */; };
 		5C471FD924C1EFFE001CE5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FD824C1EFFE001CE5BC /* AppDelegate.swift */; };
 		5C471FDD24C1EFFE001CE5BC /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FDC24C1EFFE001CE5BC /* CategoryViewController.swift */; };
 		5C471FE024C1EFFE001CE5BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C471FDE24C1EFFE001CE5BC /* Main.storyboard */; };
@@ -69,7 +71,7 @@
 		5C00EA5624C2CDE0007CEECA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5C00EA5824C2D4A0007CEECA /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		5C00EA5A24C2D831007CEECA /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		5C00EA5E24C2DEFA007CEECA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		5C00EA5E24C2DEFA007CEECA /* ErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResult.swift; sourceTree = "<group>"; };
 		5C00EA6024C2DF5D007CEECA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5C00EA6224C2DFA4007CEECA /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		5C00EA6424C2DFE8007CEECA /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
@@ -85,6 +87,8 @@
 		5C16EA4624C2F7AF008388C1 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
 		5C16EA4824C2F82D008388C1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5C16EA4B24C2F8FB008388C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5C4093A124C4B17D006CF34A /* CoreDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContext.swift; sourceTree = "<group>"; };
+		5C4093A324C4B9F3006CF34A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		5C471FD524C1EFFE001CE5BC /* ios-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C471FD824C1EFFE001CE5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C471FDC24C1EFFE001CE5BC /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				5C00EA5624C2CDE0007CEECA /* Constants.swift */,
 				5C00EA5A24C2D831007CEECA /* Enums.swift */,
 				5CF317D324C3310D005C2508 /* Reachability.swift */,
+				5C4093A124C4B17D006CF34A /* CoreDataContext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -254,7 +259,7 @@
 		5C47200D24C203E4001CE5BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5C00EA5E24C2DEFA007CEECA /* Error.swift */,
+				5C00EA5E24C2DEFA007CEECA /* ErrorResult.swift */,
 				5C00EA6024C2DF5D007CEECA /* Category.swift */,
 				5C00EA6224C2DFA4007CEECA /* Provider.swift */,
 				5C00EA6424C2DFE8007CEECA /* Field.swift */,
@@ -299,6 +304,7 @@
 				5C00EA5324C2CC2F007CEECA /* Router.swift */,
 				5C00EA5824C2D4A0007CEECA /* Endpoints.swift */,
 				5C16EA4624C2F7AF008388C1 /* ErrorService.swift */,
+				5C4093A324C4B9F3006CF34A /* CoreDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4093A224C4B17D006CF34A /* CoreDataContext.swift in Sources */,
 				5C16EA4C24C2F8FB008388C1 /* Extensions.swift in Sources */,
 				5C00EA5724C2CDE0007CEECA /* Constants.swift in Sources */,
 				5C16EA4524C2F6E0008388C1 /* BaseViewModel.swift in Sources */,
@@ -594,11 +601,12 @@
 				5C00EA6D24C2E329007CEECA /* Response.swift in Sources */,
 				5C16EA4924C2F82D008388C1 /* BaseViewController.swift in Sources */,
 				5C471FD924C1EFFE001CE5BC /* AppDelegate.swift in Sources */,
+				5C4093A424C4B9F3006CF34A /* CoreDataService.swift in Sources */,
 				5C00EA6524C2DFE8007CEECA /* Field.swift in Sources */,
 				5C00EA5B24C2D831007CEECA /* Enums.swift in Sources */,
 				5C00EA6324C2DFA4007CEECA /* Provider.swift in Sources */,
 				5C00EA5924C2D4A0007CEECA /* Endpoints.swift in Sources */,
-				5C00EA5F24C2DEFA007CEECA /* Error.swift in Sources */,
+				5C00EA5F24C2DEFA007CEECA /* ErrorResult.swift in Sources */,
 				5C471FE324C1EFFE001CE5BC /* ios_test.xcdatamodeld in Sources */,
 				5CF317D024C30D44005C2508 /* BaseCategoryCell.swift in Sources */,
 				5C16EA4724C2F7AF008388C1 /* ErrorService.swift in Sources */,

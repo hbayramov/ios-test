@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 //MARK: UIViewController
 extension UIViewController {
@@ -20,7 +21,6 @@ extension UIViewController {
     }
 }
 
-
 //MARK: Date
 extension Date {
     func toString(withTime showTime: Bool = false) -> String {
@@ -29,4 +29,3 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
-

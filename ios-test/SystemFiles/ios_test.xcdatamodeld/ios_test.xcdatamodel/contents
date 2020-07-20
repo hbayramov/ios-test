@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CCategory" representedClassName="CCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="provider" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CProvider" inverseName="ofCategory" inverseEntity="CProvider"/>
+    </entity>
+    <entity name="CField" representedClassName="CField" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ofProvider" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CProvider" inverseName="field" inverseEntity="CProvider"/>
+        <relationship name="pair" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CPair" inverseName="ofField" inverseEntity="CPair"/>
+    </entity>
+    <entity name="CPair" representedClassName="CPair" syncable="YES" codeGenerationType="class">
+        <attribute name="k" optional="YES" attributeType="String"/>
+        <attribute name="v" optional="YES" attributeType="String"/>
+        <relationship name="ofField" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CField" inverseName="pair" inverseEntity="CField"/>
+    </entity>
+    <entity name="CProvider" representedClassName="CProvider" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="field" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CField" inverseName="ofProvider" inverseEntity="CField"/>
+        <relationship name="ofCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CCategory" inverseName="provider" inverseEntity="CCategory"/>
+    </entity>
+    <elements>
+        <element name="CCategory" positionX="52.4140625" positionY="-121.2734375" width="128" height="88"/>
+        <element name="CField" positionX="0" positionY="72" width="128" height="118"/>
+        <element name="CPair" positionX="314.15625" positionY="199.921875" width="128" height="88"/>
+        <element name="CProvider" positionX="410.765625" positionY="-100.89453125" width="128" height="103"/>
+    </elements>
 </model>

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Category: Decodable {
     var id: String?
     var name: String?
