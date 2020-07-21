@@ -18,6 +18,7 @@ class PaymentViewModel: BaseViewModel {
     var selectedCategory: Category?
     var selectedProvider: Provider?
     var selectedFields = [Pair]()
+    var receipt: Receipt?
     
     var fields: [Field]? {
         if let fields = selectedProvider?.fields {
@@ -65,6 +66,44 @@ class PaymentViewModel: BaseViewModel {
                 self?.categoryData = data
                 self?.saveOnDatabase()
                 self?.addCategoryCellData()
+                completion(nil)
+                
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+    
+    func makePayment(completion: @escaping ErrorCodeType) {
+        if !Reachability.isConnectedToNetwork() {
+            completion(.notConnectedToInternet)
+            return
+        }
+        
+        let body = onJsonBody(data: paymentRequest)
+        print("make new payment body ", body)
+        endpoint.makeNewPayment(body: body) { [weak self] result in
+            switch result {
+            case .success(let resultData):
+                guard let data = resultData?.data else {
+                    if let error = resultData?.error {
+                        switch error.code {
+                        case .parameterMissing:
+                            completion(.parameterMissing(error.message ?? ""))
+                            return
+                        case .serviceUnavailable:
+                            completion(.serviceUnavailable(error.message ?? ""))
+                            return
+                        default:
+                            return
+                        }
+                    }
+                    
+                    completion(.noData("No data found"))
+                    return
+                }
+                
+                self?.receipt = data
                 completion(nil)
                 
             case .failure(let error):
@@ -158,9 +197,5 @@ extension PaymentViewModel {
     
     func isSelectedEmpty(tag: String) -> Bool {
         return !selectedFields.contains(where: { $0.k == tag })
-    }
-    
-    func printPaymentRequest() {
-        print(onJsonBody(data: paymentRequest))
     }
 }

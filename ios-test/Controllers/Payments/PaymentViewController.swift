@@ -61,52 +61,6 @@ extension PaymentViewController {
         navigationItem.title = "Payment"
     }
     
-    private func createTextField(from data: Field) -> CustomTextField {
-        switch data.type {
-        case .selectBox:
-            let selectTypeTextField: CustomTextField = {
-                let textField = CustomTextField()
-                textField.label = data.label
-                textField.tag = Int(data.id ?? "0") ?? 0
-                return textField
-            }()
-            
-            let customPickerView = UIPickerView()
-            customPickerView.tag = Int(data.id ?? "0") ?? 0
-            
-            selectTextFields.append(selectTypeTextField)
-            customPickerViews.append(customPickerView)
-            setupPickerView(for: customPickerView, textField: selectTypeTextField, barButton: UIBarButtonItem(title: "done", style: .plain, target: self, action: #selector(doneAction)))
-            
-            return selectTypeTextField
-        case .date:
-            let dateTextField: CustomTextField = {
-                let textField = CustomTextField()
-                textField.label = data.label
-                textField.tag = Int(data.id ?? "0") ?? 0
-                return textField
-            }()
-            
-            let customDatePicker = UIDatePicker()
-            customDatePicker.tag = Int(data.id ?? "0") ?? 0
-            
-            selectDateFields.append(dateTextField)
-            customDatePickerViews.append(customDatePicker)
-            setupPickerView(forDatePicker: customDatePicker, textField: dateTextField, barButton: UIBarButtonItem(title: "done", style: .plain, target: self, action: #selector(doneForDate)))
-            
-            return dateTextField
-        default:
-            let customTextField: CustomTextField = {
-                let textField = CustomTextField()
-                textField.label = data.label
-                textField.tag = Int(data.id ?? "0") ?? 0
-                textField.keyboardType = keyboardType(type: data.type ?? .textField)
-                return textField
-            }()
-            textFields.append(customTextField)
-            return customTextField
-        }
-    }
     
     private func setupView() {
         let textFieldHeight: CGFloat = 45
@@ -158,6 +112,7 @@ extension PaymentViewController {
             textField.translatesAutoresizingMaskIntoConstraints = false
             textField.label = "Card Exp Year"
             textField.keyboardType = .numberPad
+            textField.delegate = self
             return textField
         }()
         
@@ -166,6 +121,7 @@ extension PaymentViewController {
             textField.translatesAutoresizingMaskIntoConstraints = false
             textField.label = "Card Exp Month"
             textField.keyboardType = .numberPad
+            textField.delegate = self
             return textField
         }()
         let cardExpStack = createStackView(for: [cardExpMonthTxt, cardExpYearTxt], in: .horizontal, spacing: 10)
@@ -259,6 +215,53 @@ extension PaymentViewController {
         confirmButton.heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
         confirmButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
     }
+    
+    private func createTextField(from data: Field) -> CustomTextField {
+        switch data.type {
+        case .selectBox:
+            let selectTypeTextField: CustomTextField = {
+                let textField = CustomTextField()
+                textField.label = data.label
+                textField.tag = Int(data.id ?? "0") ?? 0
+                return textField
+            }()
+            
+            let customPickerView = UIPickerView()
+            customPickerView.tag = Int(data.id ?? "0") ?? 0
+            
+            selectTextFields.append(selectTypeTextField)
+            customPickerViews.append(customPickerView)
+            setupPickerView(for: customPickerView, textField: selectTypeTextField, barButton: UIBarButtonItem(title: "done", style: .plain, target: self, action: #selector(doneAction)))
+            
+            return selectTypeTextField
+        case .date:
+            let dateTextField: CustomTextField = {
+                let textField = CustomTextField()
+                textField.label = data.label
+                textField.tag = Int(data.id ?? "0") ?? 0
+                return textField
+            }()
+            
+            let customDatePicker = UIDatePicker()
+            customDatePicker.tag = Int(data.id ?? "0") ?? 0
+            
+            selectDateFields.append(dateTextField)
+            customDatePickerViews.append(customDatePicker)
+            setupPickerView(forDatePicker: customDatePicker, textField: dateTextField, barButton: UIBarButtonItem(title: "done", style: .plain, target: self, action: #selector(doneForDate)))
+            
+            return dateTextField
+        default:
+            let customTextField: CustomTextField = {
+                let textField = CustomTextField()
+                textField.label = data.label
+                textField.tag = Int(data.id ?? "0") ?? 0
+                textField.keyboardType = keyboardType(type: data.type ?? .textField)
+                return textField
+            }()
+            textFields.append(customTextField)
+            return customTextField
+        }
+    }
 }
 
 
@@ -279,11 +282,10 @@ extension PaymentViewController {
             viewModel.paymentRequest.card?.expYear = cardExpYearTxt.text
             viewModel.paymentRequest.card?.cvv = cardCvvTxt.text
             
-            viewModel.printPaymentRequest()
+            onMakePayment()
         } else {
             errorAlert(with: "Please fill the fields")
         }
-        
     }
     
     private func keyboardType(type: FieldType) -> UIKeyboardType {
@@ -326,6 +328,29 @@ extension PaymentViewController {
         guard let cCurrency = currencyTxt.text, !cCurrency.isEmpty else { return false }
         
         return true
+    }
+    
+    private func onMakePayment() {
+        activityIndicator.startAnimating()
+        viewModel.makePayment { [weak self] error in
+            self?.activityIndicator.stopAnimating()
+            
+            if let err = error {
+                self?.errorAlert(with: ErrorService.handle(error: err))
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.onReceiptView()
+            }
+        }
+    }
+    
+    private func onReceiptView() {
+        let controller = UINavigationController(rootViewController: ReceiptViewController(with: viewModel.receipt ?? Receipt()))
+        controller.modalPresentationStyle = .fullScreen
+        
+        present(controller, animated: true)
     }
 }
 
@@ -393,5 +418,20 @@ extension PaymentViewController {
         if let textField = currencyTxt {
             setupPickerView(for: currencyPicker, textField: textField, barButton: UIBarButtonItem(title: "done", style: .plain, target: self, action: #selector(doneActionCurrency)))
         }
+    }
+}
+
+//MARK: Textfield Delegate Methods
+extension PaymentViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == cardExpYearTxt || textField == cardExpMonthTxt {
+            guard let textFieldText = textField.text,
+                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                    return false
+            }
+            let count = textFieldText.count - textFieldText[rangeOfTextToReplace].count + string.count
+            return count <= 2
+        }
+        return true
     }
 }

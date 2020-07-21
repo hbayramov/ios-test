@@ -34,8 +34,8 @@ enum Router: URLRequestConvertible {
         switch self {
         case .getCategories:
             return try generateRequest(mockUrl: Constants.API.getCategoriesMockUrl)
-        case .makeNewPayment:
-            return try generateRequest(mockUrl: Constants.API.makeNewPaymentMockUrl)
+        case .makeNewPayment(let body):
+            return try generateRequest(mockUrl: Constants.API.makeNewPaymentMockUrl, body: body)
         }
     }
 }
