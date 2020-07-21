@@ -31,11 +31,11 @@ class CoreDataService: CoreDataServiceProtocol {
     func saveOrUpdate(categories data: [Category], completion: @escaping (ErrorCode?) -> Void) {
         if data.isEmpty { completion(.none) }
         
+        do {
+           try batchDelete()
+        } catch {}
+        
         for category in data {
-            if hasCategory(id: category.id ?? "") {
-                continue
-            }
-            
             do {
                 let cCategory = CCategory(context: context)
                 cCategory.name = category.name

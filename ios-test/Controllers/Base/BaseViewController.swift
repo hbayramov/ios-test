@@ -22,11 +22,11 @@ extension BaseViewController {
     
     fileprivate func baseSetup() {
         
-        view.backgroundColor = .gray
-        navigationController?.navigationBar.barTintColor = .white
+        view.backgroundColor = .white
+        navigationController?.navigationBar.barTintColor = .alabaster
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         // setup activity indicator
         view.addSubview(activityIndicator)
@@ -56,7 +56,7 @@ extension BaseViewController {
         return stackView
     }
     
-    func setupDatePickerView(for pickerView: UIPickerView? = nil,
+    func setupPickerView(for pickerView: UIPickerView? = nil,
                          forDatePicker datePickerView: UIDatePicker? = nil,
                          textField tf: UITextField, barButton button: UIBarButtonItem) {
         if let view = pickerView {

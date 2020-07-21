@@ -31,7 +31,7 @@ enum ResponseErrorCode: Int, Codable {
 
 enum FieldType: Int, Codable {
     case textField = 1
-    case numberic = 2
+    case numeric = 2
     case float = 3
     case selectBox = 4
     case date = 5

@@ -38,6 +38,10 @@
 		5C471FE824C1F002001CE5BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C471FE624C1F002001CE5BC /* LaunchScreen.storyboard */; };
 		5C471FF324C1F003001CE5BC /* ios_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FF224C1F003001CE5BC /* ios_testTests.swift */; };
 		5C471FFE24C1F003001CE5BC /* ios_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C471FFD24C1F003001CE5BC /* ios_testUITests.swift */; };
+		5C5DAB5524C6C8E200B574E1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DAB5424C6C8E200B574E1 /* CustomTextField.swift */; };
+		5CC00DDC24C6E94F00AEC600 /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC00DDB24C6E94F00AEC600 /* PaymentRequest.swift */; };
+		5CC00DDE24C6EA5100AEC600 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC00DDD24C6EA5100AEC600 /* Card.swift */; };
+		5CDBEB2824C5DF3000C0593F /* ProviderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBEB2724C5DF3000C0593F /* ProviderCell.swift */; };
 		5CF317CE24C30CE2005C2508 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317CD24C30CE2005C2508 /* CategoryCell.swift */; };
 		5CF317D024C30D44005C2508 /* BaseCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */; };
 		5CF317D224C30DB1005C2508 /* CategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF317D124C30DB1005C2508 /* CategoryCellModel.swift */; };
@@ -103,6 +107,10 @@
 		5C471FF924C1F003001CE5BC /* ios-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C471FFD24C1F003001CE5BC /* ios_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_testUITests.swift; sourceTree = "<group>"; };
 		5C471FFF24C1F003001CE5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C5DAB5424C6C8E200B574E1 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		5CC00DDB24C6E94F00AEC600 /* PaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
+		5CC00DDD24C6EA5100AEC600 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5CDBEB2724C5DF3000C0593F /* ProviderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCell.swift; sourceTree = "<group>"; };
 		5CF317CD24C30CE2005C2508 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCategoryCell.swift; sourceTree = "<group>"; };
 		5CF317D124C30DB1005C2508 /* CategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellModel.swift; sourceTree = "<group>"; };
@@ -252,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				5C16EA4B24C2F8FB008388C1 /* Extensions.swift */,
+				5C5DAB5424C6C8E200B574E1 /* CustomTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -267,6 +276,8 @@
 				5C00EA6824C2E123007CEECA /* Receipt.swift */,
 				5C00EA6A24C2E18A007CEECA /* Amount.swift */,
 				5C00EA6C24C2E329007CEECA /* Response.swift */,
+				5CC00DDB24C6E94F00AEC600 /* PaymentRequest.swift */,
+				5CC00DDD24C6EA5100AEC600 /* Card.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +305,7 @@
 			children = (
 				5CF317CD24C30CE2005C2508 /* CategoryCell.swift */,
 				5CF317CF24C30D44005C2508 /* BaseCategoryCell.swift */,
+				5CDBEB2724C5DF3000C0593F /* ProviderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -587,9 +599,11 @@
 				5C16EA4524C2F6E0008388C1 /* BaseViewModel.swift in Sources */,
 				5C16EA3C24C2F491008388C1 /* ProviderViewController.swift in Sources */,
 				5C00EA6124C2DF5D007CEECA /* Category.swift in Sources */,
+				5CDBEB2824C5DF3000C0593F /* ProviderCell.swift in Sources */,
 				5CF317D424C3310D005C2508 /* Reachability.swift in Sources */,
 				5C16EA4024C2F5BC008388C1 /* ReceiptViewController.swift in Sources */,
 				5C00EA6924C2E123007CEECA /* Receipt.swift in Sources */,
+				5CC00DDE24C6EA5100AEC600 /* Card.swift in Sources */,
 				5CF317D224C30DB1005C2508 /* CategoryCellModel.swift in Sources */,
 				5C00EA6724C2E077007CEECA /* Pair.swift in Sources */,
 				5C00EA6B24C2E18A007CEECA /* Amount.swift in Sources */,
@@ -598,9 +612,11 @@
 				5CF317CE24C30CE2005C2508 /* CategoryCell.swift in Sources */,
 				5C16EA4224C2F6CA008388C1 /* PaymentViewModel.swift in Sources */,
 				5C471FDD24C1EFFE001CE5BC /* CategoryViewController.swift in Sources */,
+				5C5DAB5524C6C8E200B574E1 /* CustomTextField.swift in Sources */,
 				5C00EA6D24C2E329007CEECA /* Response.swift in Sources */,
 				5C16EA4924C2F82D008388C1 /* BaseViewController.swift in Sources */,
 				5C471FD924C1EFFE001CE5BC /* AppDelegate.swift in Sources */,
+				5CC00DDC24C6E94F00AEC600 /* PaymentRequest.swift in Sources */,
 				5C4093A424C4B9F3006CF34A /* CoreDataService.swift in Sources */,
 				5C00EA6524C2DFE8007CEECA /* Field.swift in Sources */,
 				5C00EA5B24C2D831007CEECA /* Enums.swift in Sources */,

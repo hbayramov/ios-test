@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Amount: Decodable {
+struct Amount: Codable {
     var value: String?
     var currency: String?
 }

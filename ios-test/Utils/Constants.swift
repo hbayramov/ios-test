@@ -18,5 +18,6 @@ struct Constants {
     
     struct Cell {
         static let categoryCellID = "categoryCellID"
+        static let providerCellID = "providerCellID"
     }
 }

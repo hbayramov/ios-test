@@ -16,8 +16,6 @@ class CategoryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         setup()
         getCategories()
     }
@@ -26,8 +24,16 @@ class CategoryViewController: BaseViewController {
 //MARK: Setup View
 extension CategoryViewController {
     private func setup() {
-        view.backgroundColor = .white
-        
+        setupNavigaitonController()
+        setupView()
+    }
+    
+    private func setupNavigaitonController() {
+        navigationItem.title = "Categories"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    private func setupView() {        
         collectionView = {
             let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
             cv.translatesAutoresizingMaskIntoConstraints = false
@@ -68,7 +74,8 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected ", indexPath.row)
+        viewModel.selectedCategory = viewModel.categoryData?[indexPath.row]
+        onProviderView()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -139,5 +146,9 @@ extension CategoryViewController {
     @objc private func reloadData() {
         refreshControl.beginRefreshing()
         getCategories()
+    }
+    
+    private func onProviderView() {
+        navigationController?.pushViewController(ProviderViewController(with: viewModel), animated: true)
     }
 }

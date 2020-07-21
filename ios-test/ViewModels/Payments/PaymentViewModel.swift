@@ -15,6 +15,18 @@ class PaymentViewModel: BaseViewModel {
     
     var categoryData: [Category]?
     var categoryCellData = [CategoryCellModel]()
+    var selectedCategory: Category?
+    var selectedProvider: Provider?
+    var selectedFields = [Pair]()
+    
+    var fields: [Field]? {
+        if let fields = selectedProvider?.fields {
+            return fields
+        }
+        return nil
+    }
+    
+    var paymentRequest = PaymentRequest()
     
     private lazy var fetchedResultController: NSFetchedResultsController<CCategory> = {
         let fetchRequest: NSFetchRequest<CCategory> = CCategory.fetchRequest()
@@ -51,6 +63,7 @@ class PaymentViewModel: BaseViewModel {
                 }
                 
                 self?.categoryData = data
+                self?.saveOnDatabase()
                 self?.addCategoryCellData()
                 completion(nil)
                 
@@ -70,6 +83,10 @@ extension PaymentViewModel {
         for cat in categories {
             categoryCellData.append(CategoryCellModel(id: cat.id, name: cat.name))
         }
+    }
+    
+    private func saveOnDatabase() {
+        guard let categories = categoryData else { return }
         
         coreDataService.saveOrUpdate(categories: categories) { error in
             if let err = error {
@@ -98,9 +115,52 @@ extension PaymentViewModel {
     
     func batchDelete() {
         do {
-           try coreDataService.batchDelete()
+            try coreDataService.batchDelete()
         } catch {
             print("error on batch delete \(error)")
         }
+    }
+    
+    func getCountByTag(tag: String) -> Int {
+        return (fields?.filter({ $0.id == tag }).first?.options?.count ?? 0)
+    }
+    
+    func getValueByTag(tag: String, row: Int) -> String {
+        let opt = fields?.filter({ $0.id == tag }).first?.options
+        return opt?[row].v ?? ""
+    }
+    
+    func addToSelectedField(id: String, row: Int, value: String = "") {
+        guard let field = fields?.first(where: { $0.id == id }) else { return }
+        let index = selectedFields.firstIndex(where: { $0.k == id })
+        var pair: Pair?
+        
+        guard let type = field.type else { return }
+        
+        if type == .selectBox {
+            if let ind = index {
+                selectedFields[ind].v = field.options?[row].v
+            } else {
+                pair = Pair(k: String(id), v: field.options?[row].v)
+            }
+        } else {
+            if let ind = index {
+                selectedFields[ind].v = value
+            } else {
+                pair = Pair(k: String(id), v: value)
+            }
+        }
+        
+        if let pr = pair {
+            selectedFields.append(pr)
+        }
+    }
+    
+    func isSelectedEmpty(tag: String) -> Bool {
+        return !selectedFields.contains(where: { $0.k == tag })
+    }
+    
+    func printPaymentRequest() {
+        print(onJsonBody(data: paymentRequest))
     }
 }
