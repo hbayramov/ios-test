@@ -16,6 +16,22 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         baseSetup()
     }
+    
+    func showActiviyIndicator(with view: UIView) {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        activityIndicator.startAnimating()
+    }
+    
+   func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
 }
 
 extension BaseViewController {
@@ -27,11 +43,6 @@ extension BaseViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         navigationController?.navigationBar.prefersLargeTitles = false
-        
-        // setup activity indicator
-        view.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.hidesWhenStopped = true
     }
 
     func createStackView(for views: [UIView]? = nil, in axis: NSLayoutConstraint.Axis, spacing s: CGFloat) -> UIStackView {

@@ -14,7 +14,7 @@ protocol CoreDataServiceProtocol {
     var persistenceContainer: NSPersistentContainer { get }
     func saveOrUpdate(categories data: [Category], completion: @escaping (ErrorCode?) -> Void)
     func fetchCategories(completion: @escaping (Result<[Category], ErrorCode>) -> Void)
-    func hasCategory(id: String) -> Bool
+    func hasCategory(id: String) -> CCategory?
     func batchDelete() throws
 }
 
@@ -30,17 +30,19 @@ class CoreDataService: CoreDataServiceProtocol {
     
     func saveOrUpdate(categories data: [Category], completion: @escaping (ErrorCode?) -> Void) {
         if data.isEmpty { completion(.none) }
-        
-        do {
-           try batchDelete()
-        } catch {}
-        
+    
         for category in data {
             do {
-                let cCategory = CCategory(context: context)
-                cCategory.name = category.name
-                cCategory.id = category.id
+                var cCategory = hasCategory(id: category.id ?? "")
                 
+                if cCategory == nil {
+                    cCategory = CCategory(context: context)
+                }
+                
+                cCategory?.name = category.name
+                cCategory?.id = category.id
+                
+                cCategory?.provider = nil
                 for provider in category.providers ?? [] {
                     let cProvider = CProvider(context: context)
                     cProvider.name = provider.name
@@ -60,7 +62,7 @@ class CoreDataService: CoreDataServiceProtocol {
                         }
                         cProvider.addToField(cField)
                     }
-                    cCategory.addToProvider(cProvider)
+                    cCategory?.addToProvider(cProvider)
                 }
                 try context.save()
             } catch {
@@ -106,7 +108,7 @@ class CoreDataService: CoreDataServiceProtocol {
         
     }
     
-    func hasCategory(id: String) -> Bool {
+    func hasCategory(id: String) -> CCategory? {
         let fetchRequest: NSFetchRequest<CCategory> = CCategory.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %@", id)
         
@@ -119,7 +121,7 @@ class CoreDataService: CoreDataServiceProtocol {
             print("error executing fetch request: \(error)")
         }
         
-        return results.count > 0
+        return results.first as? CCategory
     }
     
     func batchDelete() throws {

@@ -30,6 +30,21 @@ extension Date {
     }
 }
 
+//MARK: String
+extension String {
+    func UTCToLocal() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        let dt = dateFormatter.date(from: self)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"
+        
+        return dateFormatter.string(from: dt ?? Date())
+    }
+}
+
 extension UIColor {
     static let alabaster = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1.00)
 }

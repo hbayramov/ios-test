@@ -11,6 +11,9 @@ import UIKit
 class PaymentViewController: BaseViewController {
     private let viewModel: PaymentViewModel!
     
+    private var scrollView: UIScrollView!
+    private var contentView: UIView!
+    
     private var customPickerViews = [UIPickerView]()
     private var currencyPicker = UIPickerView()
     private var customDatePickerViews = [UIDatePicker]()
@@ -66,7 +69,7 @@ extension PaymentViewController {
         let textFieldHeight: CGFloat = 45
         mainStackView = createStackView(for: nil, in: .vertical, spacing: 45)
         
-        let scrollView: UIScrollView = {
+        scrollView = {
             let sv = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
             sv.translatesAutoresizingMaskIntoConstraints = false
             sv.backgroundColor = .clear
@@ -79,7 +82,7 @@ extension PaymentViewController {
         
         view.addSubview(scrollView)
         
-        let contentView: UIView = {
+        contentView = {
             let vw = UIView()
             vw.translatesAutoresizingMaskIntoConstraints = false
             return vw
@@ -271,17 +274,17 @@ extension PaymentViewController {
         if validation() {
             viewModel.paymentRequest.providerId = viewModel.selectedProvider?.id
             viewModel.paymentRequest.fields = viewModel.selectedFields
-            
+
             viewModel.paymentRequest.amount = Amount()
             viewModel.paymentRequest.amount?.value = amountTxt.text
             viewModel.paymentRequest.amount?.currency = currencyTxt.text
-            
+
             viewModel.paymentRequest.card = Card()
             viewModel.paymentRequest.card?.number = cardNumberTxt.text
             viewModel.paymentRequest.card?.expMonth = cardExpMonthTxt.text
             viewModel.paymentRequest.card?.expYear = cardExpYearTxt.text
             viewModel.paymentRequest.card?.cvv = cardCvvTxt.text
-            
+
             onMakePayment()
         } else {
             errorAlert(with: "Please fill the fields")
@@ -331,9 +334,10 @@ extension PaymentViewController {
     }
     
     private func onMakePayment() {
-        activityIndicator.startAnimating()
+        showActiviyIndicator(with: contentView)
+        
         viewModel.makePayment { [weak self] error in
-            self?.activityIndicator.stopAnimating()
+            self?.hideActivityIndicator()
             
             if let err = error {
                 self?.errorAlert(with: ErrorService.handle(error: err))

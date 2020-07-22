@@ -12,7 +12,7 @@ struct Constants {
     
     struct API {
         static let baseUrl = ""
-        static let getCategoriesMockUrl = "https://run.mocky.io/v3/97a93180-b49f-4a85-95f2-41cd25fca763"
+        static let getCategoriesMockUrl = "https://run.mocky.io/v3/b4db8cfb-660d-4b7b-8b8f-b26ba32ab373"
         static let makeNewPaymentMockUrl = "https://run.mocky.io/v3/16f56b6f-e2e2-485e-89d6-c265ded75c77"
     }
     
